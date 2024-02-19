@@ -1,33 +1,33 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 
-template <typename t1,typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax); //заполняем массив произвольными числами
-template <typename t1,typename t2> void Rand(t1 Array[][2], t2 SIZE1,t2 SIZE2, t2 randmax); //заполняем двумерный массив произвольными числами
-template <typename t1,typename t2> void Print(t1 Array[], t2 SIZE); //вывод массива в консоль
-template <typename t1,typename t2> void Print(t1 Array[][2], t2 SIZE1,t2 SIZE2); //вывод двумерного массива в консоль
-template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE,t1 sum =0);//вычисление суммы элементов массива
-template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 sum =0);//вычисление суммы элементов двумерного массива
-int Sum(char Array[], int SIZE1,int sum =0);//вычисление суммы элементов массива с типом данных char
-template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE,double sum =0);//вычисление средее-арифметическое элементов массива
-template <typename t1, typename t2> double Avg(t1 Array[][2], t2 SIZE1,t2 SIZE2, double sum =0);//вычисление средее-арифметическое элементов массива
-template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE,t1 min =0);//определение минимального значения в массиве
-template <typename t1, typename t2> t1 minValueIn(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 min =0);//определение минимального значения в двумерном массиве
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[], t2 SIZE,t1 max =0);//определение максимального значения в массиве
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 max =0);//определение максимального значения в двумерном массиве
-template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE,t2 shift);//циклический сдвиг массива в лево
-template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 SIZE2,t2 shift);//циклический сдвиг двумерного массива в лево
-template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE,t2 shift);//циклический сдвиг массива в право
-template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 SIZE2,t2 shift);//циклический сдвиг двумерного массива в право
+template <typename t1,typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax); //Р·Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ РїСЂРѕРёР·РІРѕР»СЊРЅС‹РјРё С‡РёСЃР»Р°РјРё
+template <typename t1,typename t2> void Rand(t1 Array[][2], t2 SIZE1,t2 SIZE2, t2 randmax); //Р·Р°РїРѕР»РЅСЏРµРј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ РїСЂРѕРёР·РІРѕР»СЊРЅС‹РјРё С‡РёСЃР»Р°РјРё
+template <typename t1,typename t2> void Print(t1 Array[], t2 SIZE); //РІС‹РІРѕРґ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
+template <typename t1,typename t2> void Print(t1 Array[][2], t2 SIZE1,t2 SIZE2); //РІС‹РІРѕРґ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
+template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE,t1 sum =0);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 sum =0);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+int Sum(char Array[], int SIZE1,int sum =0);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° СЃ С‚РёРїРѕРј РґР°РЅРЅС‹С… char
+template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE,double sum =0);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРµРµ-Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+template <typename t1, typename t2> double Avg(t1 Array[][2], t2 SIZE1,t2 SIZE2, double sum =0);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРµРµ-Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE,t1 min =0);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
+template <typename t1, typename t2> t1 minValueIn(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 min =0);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
+template <typename t1, typename t2> t1 maxValueIn(t1 Array[], t2 SIZE,t1 max =0);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
+template <typename t1, typename t2> t1 maxValueIn(t1 Array[][2], t2 SIZE1,t2 SIZE2,t1 max =0);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
+template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE,t2 shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІ Р»РµРІРѕ
+template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 SIZE2,t2 shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ Р»РµРІРѕ
+template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE,t2 shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІ РїСЂР°РІРѕ
+template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 SIZE2,t2 shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РїСЂР°РІРѕ
 
 
 
 void main()
 {
 	//setlocale(LC_ALL, "");
-	const int SIZE = 5;// количество элементов одномерного массива
-	const int SIZE1 = 2;//количество строк массива
-	const int SIZE2 = 2;//количество столбцов массива
+	const int SIZE = 5;// РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РѕРґРЅРѕРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+	const int SIZE1 = 2;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°
+	const int SIZE2 = 2;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°
 	double Array[SIZE1][SIZE2]= { 2.1,3.5,6.2,7.4 };
 	//int Array[SIZE];
 	//Rand(Array, SIZE, 100);
@@ -103,14 +103,14 @@ template <typename t1, typename t2> double Avg(t1 Array[][2], t2 SIZE1,t2 SIZE2,
 	return sum/(SIZE1*SIZE2);
 }
 
-template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE, t1 min)//определение минимального значения в массиве
+template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE, t1 min)//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
 {
 	min = Array[0];
 	for (int i = 0; i < SIZE;i++) if (Array[i] < min) min = Array[i];
 	return min;
 }
 
-template <typename t1, typename t2> t1 minValueIn(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 min)//определение минимального значения в двумерном массиве
+template <typename t1, typename t2> t1 minValueIn(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 min)//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
 {
 	min = Array[0][0];
 	for (int i = 0; i < SIZE1; i++)
@@ -120,14 +120,14 @@ template <typename t1, typename t2> t1 minValueIn(t1 Array[][2], t2 SIZE1, t2 SI
 	return min;
 }
 
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[], t2 SIZE, t1 max )//определение максимального значения в массиве
+template <typename t1, typename t2> t1 maxValueIn(t1 Array[], t2 SIZE, t1 max )//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
 {
 	max = Array[0];
 	for (int i = 0; i < SIZE; i++) if (Array[i] > max) max = Array[i];
 	return max;
 }
 
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 max )//определение максимального значения в двумерном массиве
+template <typename t1, typename t2> t1 maxValueIn(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 max )//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
 {
 	max = Array[0][0];
 	for (int i = 0; i < SIZE1; i++)
@@ -137,7 +137,7 @@ template <typename t1, typename t2> t1 maxValueIn(t1 Array[][2], t2 SIZE1, t2 SI
 	return max;
 }
 
-template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE, t2 shift)//циклический сдвиг массива в лево
+template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE, t2 shift)//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІ Р»РµРІРѕ
 {
 	for (int i = 0; i < shift; i++) {
 		t1 temp = Array[0];
@@ -146,7 +146,7 @@ template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE, t2 shift
 	}
 }
 
-template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift)//циклический сдвиг двумерного массива в лево
+template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift)//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ Р»РµРІРѕ
 {
 	for (int i = 0; i < shift; i++) {
 		t1 temp = Array[0][0];
@@ -155,7 +155,7 @@ template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 S
 	}
 }
 
-template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE, t2 shift)//циклический сдвиг массива в право
+template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE, t2 shift)//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІ РїСЂР°РІРѕ
 {
 	for (int i = 0; i < shift; i++) {
 		t1 temp = Array[SIZE - 1];
@@ -164,7 +164,7 @@ template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE, t2 shif
 	}
 }
 
-template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift)//циклический сдвиг двумерного массива в право
+template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift)//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РїСЂР°РІРѕ
 {
 	for (int i = 0; i < shift; i++) {
 		t1 temp = Array[SIZE1 - 1][SIZE2-1];

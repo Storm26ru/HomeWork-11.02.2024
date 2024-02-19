@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 double POWER(double base, int exponent);
@@ -8,7 +8,7 @@ void main()
 	setlocale(LC_ALL, "");
 	double base;
 	int exponent;
-	cout << "Ââåäèòå ÷èñëî è ïîêàçàòåëü ñòåïåíè: "; cin >> base >> exponent;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¸ Ð¿Ð¾ÐºÐ°Ð·Ð°Ñ‚ÐµÐ»ÑŒ ÑÑ‚ÐµÐ¿ÐµÐ½Ð¸: "; cin >> base >> exponent;
 	cout << POWER(base, exponent);
 
 }
