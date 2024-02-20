@@ -2,13 +2,13 @@
 using namespace std;
 
 
-template <typename t1, typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax); //заполняем массив произвольными числами
-template <typename t1, typename t2> void Rand(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 randmax); //заполняем двумерный массив произвольными числами
+template <typename t1, typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax=100); //заполняем массив произвольными числами
+template <typename t1, typename t2> void Rand(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 randmax=100); //заполняем двумерный массив произвольными числами
 template <typename t1, typename t2> void Print(t1 Array[], t2 SIZE); //вывод массива в консоль
 template <typename t1, typename t2> void Print(t1 Array[][2], t2 SIZE1, t2 SIZE2); //вывод двумерного массива в консоль
-template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE, t1 sum = 0);//вычисление суммы элементов массива
-template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 sum = 0);//вычисление суммы элементов двумерного массива
-int Sum(char Array[], int SIZE1, int sum = 0);//вычисление суммы элементов массива с типом данных char
+template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE);//вычисление суммы элементов массива
+template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1, t2 SIZE2);//вычисление суммы элементов двумерного массива
+//int Sum(char Array[], int SIZE1, int sum = 0);//вычисление суммы элементов массива с типом данных char
 template <typename t1, typename t2> void Sort(t1 Array[], t2 SIZE);//сортировка массива в порядке возрастания
 template <typename t1, typename t2> void Sort(t1 Array[][2], t2 SIZE1, t2 SIZE2);//сортировка двумерного массива в порядке возрастания
 template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE, double sum = 0);//вычисление средее-арифметическое элементов массива
@@ -25,16 +25,17 @@ template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 
 
 void main()
 {
-	//setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "");
 	const int SIZE = 5;// количество элементов одномерного массива
 	const int SIZE1 = 2;//количество строк массива
 	const int SIZE2 = 2;//количество столбцов массива
 	char Array2[SIZE];
 	double Array1[SIZE1][SIZE2];
 	int Array[SIZE];
-	Rand(Array, SIZE, 100);
+	Rand(Array2, SIZE);
+	Print(Array2, SIZE);
+	cout << int(Sum(Array2, SIZE));
 	//Rand(Array, SIZE1,SIZE2, 100);
-	Print(Array, SIZE);
 	//Print(Array, SIZE1, SIZE2);
 	//Sort(Array, SIZE);
 	//Sort(Array, SIZE1, SIZE2);
@@ -61,34 +62,67 @@ template <typename t1, typename t2> void Rand(t1 Array[][2], t2 SIZE1, t2 SIZE2,
 
 template <typename t1, typename t2> void Print(t1 Array[], t2 SIZE)
 {
+	if (sizeof(t1) == sizeof(char))
+	{
+		for (int i = 0; i < SIZE; i++) cout <<Array[i]<<" - "<< int(Array[i]) << "\t";
+	    cout << endl;
+	}
+	else {
+
 	for (int i = 0; i < SIZE; i++) cout << Array[i] << "\t";
 	cout << endl;
+	}
 }
 
 template <typename t1, typename t2> void Print(t1 Array[][2], t2 SIZE1, t2 SIZE2)
 {
-	for (int i = 0; i < SIZE1; i++)
+	if (sizeof(t1) == sizeof(char))
 	{
-		cout << i + 1 << " - ";
-		for (int j = 0; j < SIZE2; j++) cout << Array[i][j] << "  ";
-		cout << endl;
+		for (int i = 0; i < SIZE1; i++)
+		{
+			cout << i + 1 << " - ";
+			for (int j = 0; j < SIZE2; j++) cout << Array[i][j] << " - " << int(Array[i][j]) <<"\t";
+			cout << endl;
+		}
+	}
+	else {
+
+		for (int i = 0; i < SIZE1; i++)
+		{
+			cout << i + 1 << " - ";
+			for (int j = 0; j < SIZE2; j++) cout << Array[i][j] << "\t";
+			cout << endl;
+		}
+	}
+	
+}
+
+//int Sum(char Array[], int SIZE, int sum)
+//{
+//	for (int i = 0; i < SIZE; i++) sum += Array[i];
+//	return sum;
+//}
+
+template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE)
+{
+	if (sizeof(t1) == sizeof(char))
+	{
+		int sum = 0;
+	    for (int i = 0; i < SIZE; i++) sum += Array[i];
+		cout <<int(sum) << endl;
+		return sum;
+	}
+	else
+	{
+	t1 sum = 0;
+	for (int i = 0; i < SIZE; i++) sum += Array[i];
+	return sum;
 	}
 }
 
-int Sum(char Array[], int SIZE, int sum)
+template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1, t2 SIZE2)
 {
-	for (int i = 0; i < SIZE; i++) sum += Array[i];
-	return sum;
-}
-
-template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE, t1 sum)
-{
-	for (int i = 0; i < SIZE; i++) sum += Array[i];
-	return sum;
-}
-
-template <typename t1, typename t2> t1 Sum(t1 Array[][2], t2 SIZE1, t2 SIZE2, t1 sum)
-{
+	t1 sum = 0;
 	for (int i = 0; i < SIZE1; i++)
 	{
 		for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
