@@ -25,7 +25,8 @@ template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE, t2 shift
 template <typename t1, typename t2> void ShiftLeft(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift);//циклический сдвиг двумерного массива в лево
 template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE, t2 shift);//циклический сдвиг массива в право
 template <typename t1, typename t2> void ShiftRight(t1 Array[][2], t2 SIZE1, t2 SIZE2, t2 shift);//циклический сдвиг двумерного массива в право
-
+template<typename t1, typename t2> void Call(t1 Array[], t2 SIZE);//вывод данных по массиву
+template<typename t1, typename t2> void Call(t1 Array[][2], t2 SIZE1,t2 SIZE2);//вывод данных по двумерному массиву 
 
 void main()
 {
@@ -39,9 +40,49 @@ void main()
 	int Array2_in[SIZE1][SIZE2];
 	double Array_double[SIZE];
 	double Array2_double[SIZE1][SIZE2];
-
+	Call(Array_char, SIZE);
+	
 }
 
+template<typename t1, typename t2> void Call(t1 Array[], t2 SIZE)//вывод данных по массиву
+{
+	cout << "\nМассив с типом данных " << typeid(t1).name() << endl;
+	Rand(Array, SIZE);
+	Print(Array, SIZE);
+	if (sizeof(t1) == sizeof(char))
+	{
+		Sum(Array, SIZE);
+		cout << "\nСумма элементов массива " << sum_char << endl;
+		Avg(Array, SIZE);
+		cout << "\nСреднее-арифметическое элементов массива " << avg_char << endl;
+	}
+	else {
+		cout << "\nСумма элементов массива " << Sum(Array, SIZE) << endl;
+		cout << "\nСреднее-арифметическое элементов массива " << Avg(Array,SIZE) << endl;
+	}
+	cout << "\nСортировка массива в порядке возрастания: " << endl;
+	Sort(Array, SIZE);
+	Print(Array, SIZE);
+	if (sizeof(t1) == sizeof(char))
+	{
+		cout << "\nМинимальное значение в массиве " << int(minValueIn(Array, SIZE)) << endl;
+		cout << "\nМаксимальное значение в массиве " << int(maxValueIn(Array, SIZE)) << endl;
+	}
+	else
+	{
+		cout << "\nМинимальное значение в массиве " << minValueIn(Array, SIZE) << endl;
+		cout << "\nМаксимальное значение в массиве " << maxValueIn(Array, SIZE) << endl;
+	}
+	int shift;
+	cout << "\nЦиклический сдвиг массива в лево." << " Введите число на которое сдвинуть массив "; cin>> shift;
+	ShiftLeft(Array, SIZE, shift);
+	Print(Array, SIZE);
+	cout << "\nЦиклический сдвиг массива в право." <<" Введите число на которое сдвинуть массив "; cin>> shift;
+	ShiftRight(Array, SIZE, shift);
+	Print(Array, SIZE);
+
+
+}
 template <typename t1, typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax)
 {
 	if(sizeof(t1)==sizeof(double))for (int i = 0; i < SIZE; i++) Array[i] = double(rand() % randmax)/10;
