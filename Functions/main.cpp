@@ -1,7 +1,4 @@
-﻿#include<iostream>
-using namespace std;
-
-double POWER(double base, int exponent);
+﻿#include "functions.h"
 
 void main()
 {
@@ -13,9 +10,3 @@ void main()
 
 }
 
-double POWER(double base, int exponent)
-{
-	double c =1;
-	for (int i = 0; i < exponent; i++) c *= base;
-	return c;
-}
