@@ -14,8 +14,8 @@ void main()
 	int Array2_in[SIZE1][SIZE2];
 	double Array_double[SIZE];
 	double Array2_double[SIZE1][SIZE2];
-	//Call(Array_char, SIZE);
-	//Call(Array2_char, SIZE1,SIZE2);
+	Call(Array_char, SIZE);
+	Call(Array2_char, SIZE1,SIZE2);
 	Call(Array_in, SIZE);
 	Call(Array2_in, SIZE1,SIZE2);
 	Call(Array_double, SIZE);

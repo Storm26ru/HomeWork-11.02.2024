@@ -52,8 +52,8 @@ template <typename t1, typename t2> void Print(t1 Array[][4], t2 SIZE1, t2 SIZE2
 
 }
 
-//template <typename t1, typename t2> t1 Sum(t1 Array[], t2 SIZE)//вычисление суммы элементов массива
-//{
+template <typename t1, typename t2> double Sum(t1 Array[], t2 SIZE)//вычисление суммы элементов массива
+{
 //	if (sizeof(t1) == sizeof(char))
 	//{
 		// int sum_char = 0;
@@ -61,14 +61,14 @@ template <typename t1, typename t2> void Print(t1 Array[][4], t2 SIZE1, t2 SIZE2
 	//}
 	//else
 	//{
-	//	t1 sum = 0;
-		//for (int i = 0; i < SIZE; i++) sum += Array[i];
-		//return sum;
+		double sum = 0;
+		for (int i = 0; i < SIZE; i++) sum += Array[i];
+		return sum;
 	//}
-//}
+}
 
-//template <typename t1, typename t2> t1 Sum(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление суммы элементов двумерного массива
-//{
+template <typename t1, typename t2> double Sum(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление суммы элементов двумерного массива
+{
 	//if (sizeof(t1) == sizeof(char))
 	//{
 	//	int sum_char2 = 0;
@@ -76,11 +76,11 @@ template <typename t1, typename t2> void Print(t1 Array[][4], t2 SIZE1, t2 SIZE2
 	//}
 	//else
 	//{
-	//	t1 sum = 0;
-	//	for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
-	//	return sum;
+		double sum = 0;
+		for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
+		return sum;
 	//}
-//}
+}
 
 template <typename t1, typename t2> void Sort(t1 Array[], t2 SIZE)//сортировка массива в порядке возрастания
 {
@@ -104,8 +104,8 @@ template <typename t1, typename t2> void Sort(t1 Array[][4], t2 SIZE1, t2 SIZE2)
 	}
 }
 
-//template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE)//вычисление средее-арифметическое элементов массива
-//{
+template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE)//вычисление средее-арифметическое элементов массива
+{
 	//if (sizeof(t1) == sizeof(char))
 //	{
 	//	for (int i = 0; i < SIZE; i++) sum_char += Array[i];
@@ -113,14 +113,14 @@ template <typename t1, typename t2> void Sort(t1 Array[][4], t2 SIZE1, t2 SIZE2)
 	//}
 //	else
 	//{
-//		double sum = 0;
-	//	for (int i = 0; i < SIZE; i++) sum += Array[i];
-	//	return sum / SIZE;
+		double sum = 0;
+		for (int i = 0; i < SIZE; i++) sum += Array[i];
+		return sum / SIZE;
 	//}
-//}
+}
 
-//template <typename t1, typename t2> double Avg(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление средее-арифметическое элементов двумерного массива
-//{
+template <typename t1, typename t2> double Avg(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление средее-арифметическое элементов двумерного массива
+{
 	//if (sizeof(t1) == sizeof(char))
 	//{
 	//	for (int i = 0; i < SIZE1; i++)
@@ -131,15 +131,15 @@ template <typename t1, typename t2> void Sort(t1 Array[][4], t2 SIZE1, t2 SIZE2)
 	//}
 	//else
 	//{
-	//	double sum = 0;
-	//	for (int i = 0; i < SIZE1; i++)
-	//	{
-	//		for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
-	//	}
-	//	return sum / (SIZE1 * SIZE2);
+		double sum = 0;
+		for (int i = 0; i < SIZE1; i++)
+		{
+			for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
+		}
+		return sum / (SIZE1 * SIZE2);
 	//}
 
-//}
+}
 
 template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE)//определение минимального значения в массиве
 {
@@ -224,8 +224,8 @@ template<typename t1, typename t2> void Call(t1 Array[], t2 SIZE)//вывод данных 
 		//cout << "\nСреднее-арифметическое элементов массива " << avg_char << endl;
 //	}
 	//else {
-	//	cout << "\nСумма элементов массива " << Sum(Array, SIZE) << endl;
-	//	cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE) << endl;
+		cout << "\nСумма элементов массива " << Sum(Array, SIZE) << endl;
+		cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE) << endl;
 	//}
 	cout << "\nСортировка массива в порядке возрастания: " << endl;
 	Sort(Array, SIZE);
@@ -264,8 +264,8 @@ template<typename t1, typename t2> void Call(t1 Array[][4], t2 SIZE1, t2 SIZE2)/
 	//	//cout << "\nСреднее-арифметическое элементов массива " << avg_char2 << endl;
 //	}
 	//else {
-	//	cout << "\nСумма элементов массива " << Sum(Array, SIZE1, SIZE2) << endl;
-	//	cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE1, SIZE2) << endl;
+		cout << "\nСумма элементов массива " << Sum(Array, SIZE1, SIZE2) << endl;
+		cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE1, SIZE2) << endl;
 	//}
 	cout << "\nСортировка массива в порядке возрастания: " << endl;
 	Sort(Array, SIZE1, SIZE2);
