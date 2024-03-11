@@ -1,22 +1,29 @@
 #include "Functions.h"
 
 
-template <typename t1, typename t2> void Rand(t1 Array[], t2 SIZE, t2 randmax)//заполняем массив произвольными числами
+
+template <typename T> void fnc::Rand(T Array[], int SIZE, int randmax)//заполняем массив произвольными числами
 {
-	if (sizeof(t1) == sizeof(double))for (int i = 0; i < SIZE; i++) Array[i] = double(rand() % randmax) / 10;
+	if (sizeof(T) == sizeof(double))for (int i = 0; i < SIZE; i++) Array[i] = double(rand() % randmax) / 10;
 	else for (int i = 0; i < SIZE; i++) Array[i] = rand() % randmax;
 }
+template void fnc::Rand <int> (int Array[], int SIZE, int randmax);
+template void fnc::Rand <double> (double Array[], int SIZE, int randmax);
+template void fnc::Rand <char> (char Array[], int SIZE, int randmax);
 
-template <typename t1, typename t2> void Rand(t1 Array[][4], t2 SIZE1, t2 SIZE2, t2 randmax)//заполняем двумерный массив произвольными числами
+template <typename T> void fnc::Rand(T Array[ROWS][COLS], int ROWS, int COLS, int randmax)//заполняем двумерный массив произвольными числами
 {
-	if (sizeof(t1) == sizeof(double))for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++) Array[i][j] = double(rand() % randmax) / 10;
-	else for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++) Array[i][j] = rand() % randmax;
+	if (sizeof(T) == sizeof(double))for (int i = 0; i < ROWS; i++) for (int j = 0; j < COLS; j++) Array[i][j] = double(rand() % randmax) / 10;
+	else for (int i = 0; i < ROWS; i++) for (int j = 0; j < COLS; j++) Array[i][j] = rand() % randmax;
 }
+template void fnc::Rand <int>(int Array[ROWS][COLS], int ROWS, int COLS, int randmax);
+template void fnc::Rand <double>(double Array[ROWS][COLS], int ROWS, int COLS, int randmax);
+template void fnc::Rand <char>(char Array[ROWS][COLS], int ROWS, int COLS, int randmax);
 
-template <typename t1, typename t2> void Print(t1 Array[], t2 SIZE)//вывод массива в консоль
+template <typename T> void fnc::Print(T Array[], int SIZE)//вывод массива в консоль
 {
 	cout << endl;
-	if (sizeof(t1) == sizeof(char))
+	if (sizeof(T) == sizeof(char))
 	{
 		for (int i = 0; i < SIZE; i++) cout << Array[i] << " - " << int(Array[i]) << "\t";
 		cout << endl;
@@ -27,210 +34,220 @@ template <typename t1, typename t2> void Print(t1 Array[], t2 SIZE)//вывод масси
 		cout << endl;
 	}
 }
+template void fnc::Print<int>(int Array[], int SIZE);
+template void fnc::Print<double>(double Array[], int SIZE);
+template void fnc::Print<char>(char Array[], int SIZE);
 
-template <typename t1, typename t2> void Print(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вывод двумерного массива в консоль
+template <typename T> void fnc::Print(T Array[ROWS][COLS], int ROWS, int COLS)//вывод двумерного массива в консоль
 {
 	cout << endl;
-	if (sizeof(t1) == sizeof(char))
+	if (sizeof(T) == sizeof(char))
 	{
-		for (int i = 0; i < SIZE1; i++)
+		for (int i = 0; i < ROWS; i++)
 		{
 			cout << i + 1 << ": ";
-			for (int j = 0; j < SIZE2; j++) cout << Array[i][j] << " - " << int(Array[i][j]) << "  ";
+			for (int j = 0; j <COLS; j++) cout << Array[i][j] << " - " << int(Array[i][j]) << "  ";
 			cout << endl;
 		}
 	}
 	else {
 
-		for (int i = 0; i < SIZE1; i++)
+		for (int i = 0; i < ROWS; i++)
 		{
 			cout << i + 1 << ": ";
-			for (int j = 0; j < SIZE2; j++) cout << Array[i][j] << "  ";
+			for (int j = 0; j < COLS; j++) cout << Array[i][j] << "  ";
 			cout << endl;
 		}
 	}
 
 }
+template void fnc::Print<int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Print<double>(double Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Print<char>(char Array[ROWS][COLS], int ROWS, int COLS);
 
-template <typename t1, typename t2> double Sum(t1 Array[], t2 SIZE)//вычисление суммы элементов массива
+template <typename T> double fnc::Sum(T Array[], int SIZE)//вычисление суммы элементов массива
 {
-//	if (sizeof(t1) == sizeof(char))
-	//{
-		// int sum_char = 0;
-		//for (int i = 0; i < SIZE; i++) sum_char += Array[i];
-	//}
-	//else
-	//{
+
 		double sum = 0;
 		for (int i = 0; i < SIZE; i++) sum += Array[i];
 		return sum;
-	//}
-}
 
-template <typename t1, typename t2> double Sum(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление суммы элементов двумерного массива
+}
+template  double fnc::Sum <int>(int Array[], int SIZE);
+template  double fnc::Sum <double>(double Array[], int SIZE);
+template  double fnc::Sum <char>(char Array[], int SIZE);
+
+template <typename T> double fnc::Sum(T Array[ROWS][COLS], int ROWS, int COLS)//вычисление суммы элементов двумерного массива
 {
-	//if (sizeof(t1) == sizeof(char))
-	//{
-	//	int sum_char2 = 0;
-	//	for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++)sum_char2 += Array[i][j];
-	//}
-	//else
-	//{
 		double sum = 0;
-		for (int i = 0; i < SIZE1; i++) for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
+		for (int i = 0; i < ROWS; i++) for (int j = 0; j < COLS; j++)sum += Array[i][j];
 		return sum;
-	//}
 }
+template double fnc::Sum <int>(int Array[ROWS][COLS], int ROWS, int COLS); 
+template double fnc::Sum <double>(double Array[ROWS][COLS], int ROWS, int COLS); 
+template double fnc::Sum <char>(char Array[ROWS][COLS], int ROWS, int COLS); 
 
-template <typename t1, typename t2> void Sort(t1 Array[], t2 SIZE)//сортировка массива в порядке возрастания
+template <typename T> void fnc::Sort(T Array[], int SIZE)//сортировка массива в порядке возрастания
 {
 	for (int index = 0, i = 0; i < SIZE; i++)
 	{
-		t1 min = Array[i]; index = i;
+		T min = Array[i]; index = i;
 		for (int j = i; j < SIZE; j++) if (Array[j] < min) { min = Array[j]; index = j; }
 		Array[index] = Array[i];
 		Array[i] = min;
 	}
 }
+template void fnc::Sort <int>(int Array[], int SIZE);
+template void fnc::Sort <double>(double Array[], int SIZE);
+template void fnc::Sort <char>(char Array[], int SIZE);
 
-template <typename t1, typename t2> void Sort(t1 Array[][4], t2 SIZE1, t2 SIZE2)//сортировка двумерного массива в порядке возрастания
+template <typename T> void fnc::Sort(T Array[ROWS][COLS], int ROWS, int COLS)//сортировка двумерного массива в порядке возрастания
 {
-	for (int index = 0, i = 0; i < SIZE1 * SIZE2; i++)
+	for (int index = 0, i = 0; i < ROWS * COLS; i++)
 	{
-		t1 min = Array[i / SIZE2][i % SIZE2]; index = i;
-		for (int j = i; j < SIZE1 * SIZE2; j++) if (Array[j / SIZE2][j % SIZE2] < min) { min = Array[j / SIZE2][j % SIZE2]; index = j; }
-		Array[index / SIZE2][index % SIZE2] = Array[i / SIZE2][i % SIZE2];
-		Array[i / SIZE2][i % SIZE2] = min;
+		T min = Array[i / COLS][i % COLS]; index = i;
+		for (int j = i; j < ROWS * COLS; j++) if (Array[j / COLS][j % COLS] < min) { min = Array[j / COLS][j % COLS]; index = j; }
+		Array[index / COLS][index % COLS] = Array[i / COLS][i % COLS];
+		Array[i / COLS][i % COLS] = min;
 	}
 }
+template void fnc::Sort<int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Sort < double > (double Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Sort < char > (char Array[ROWS][COLS], int ROWS, int COLS);
 
-template <typename t1, typename t2> double Avg(t1 Array[], t2 SIZE)//вычисление средее-арифметическое элементов массива
+template <typename T> double fnc::Avg(T Array[], int SIZE)//вычисление средее-арифметическое элементов массива
 {
-	//if (sizeof(t1) == sizeof(char))
-//	{
-	//	for (int i = 0; i < SIZE; i++) sum_char += Array[i];
-	//	double avg_char = double(sum_char) / SIZE;
-	//}
-//	else
-	//{
+	
 		double sum = 0;
 		for (int i = 0; i < SIZE; i++) sum += Array[i];
 		return sum / SIZE;
-	//}
+	
 }
+template  double fnc::Avg<int>(int Array[], int SIZE);
+template  double fnc::Avg<double>(double Array[], int SIZE);
+template  double fnc::Avg<char>(char Array[], int SIZE);
 
-template <typename t1, typename t2> double Avg(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вычисление средее-арифметическое элементов двумерного массива
+template <typename T> double fnc::Avg(T Array[ROWS][COLS], int ROWS, int COLS)//вычисление средее-арифметическое элементов двумерного массива
 {
-	//if (sizeof(t1) == sizeof(char))
-	//{
-	//	for (int i = 0; i < SIZE1; i++)
-	//	{
-	//		for (int j = 0; j < SIZE2; j++)sum_char2 += Array[i][j];
-	//	}
-	//	double avg_char2 = double(sum_char2) / (SIZE1 * SIZE2);
-	//}
-	//else
-	//{
+	
 		double sum = 0;
-		for (int i = 0; i < SIZE1; i++)
+		for (int i = 0; i < ROWS; i++)
 		{
-			for (int j = 0; j < SIZE2; j++)sum += Array[i][j];
+			for (int j = 0; j < COLS; j++)sum += Array[i][j];
 		}
-		return sum / (SIZE1 * SIZE2);
-	//}
+		return sum / (ROWS * COLS);
+	
 
 }
+template  double fnc::Avg <int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template  double fnc::Avg <double>(double Array[ROWS][COLS], int ROWS, int COLS);
+template  double fnc::Avg <char>(char Array[ROWS][COLS], int ROWS, int COLS);
 
-template <typename t1, typename t2> t1 minValueIn(t1 Array[], t2 SIZE)//определение минимального значения в массиве
+template <typename T> T fnc::minValueIn(T Array[], int SIZE)//определение минимального значения в массиве
 {
-	t1 min = Array[0];
+	T min = Array[0];
 	for (int i = 0; i < SIZE; i++) if (Array[i] < min) min = Array[i];
 	return min;
 }
+template  int fnc::minValueIn <int>(int Array[], int SIZE);
+template  double fnc::minValueIn <double>(double Array[], int SIZE);
+template  char fnc::minValueIn <char>(char Array[], int SIZE);
 
-template <typename t1, typename t2> t1 minValueIn(t1 Array[][4], t2 SIZE1, t2 SIZE2)//определение минимального значения в двумерном массиве
+template <typename T> T fnc::minValueIn(T Array[ROWS][COLS], int ROWS, int COLS)//определение минимального значения в двумерном массиве
 {
-	t1 min = Array[0][0];
-	for (int i = 0; i < SIZE1; i++)
+	T min = Array[0][0];
+	for (int i = 0; i < ROWS; i++)
 	{
-		for (int j = 0; j < SIZE2; j++) if (Array[i][j] < min) min = Array[i][j];
+		for (int j = 0; j < COLS; j++) if (Array[i][j] < min) min = Array[i][j];
 	}
 	return min;
 }
+template  int fnc::minValueIn<int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template double fnc::minValueIn<double>(double Array[ROWS][COLS], int ROWS, int COLS);
+template char fnc::minValueIn<char>(char Array[ROWS][COLS], int ROWS, int COLS);
 
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[], t2 SIZE)//определение максимального значения в массиве
+template <typename T> T fnc::maxValueIn(T Array[], int SIZE)//определение максимального значения в массиве
 {
-	t1 max = Array[0];
+	T max = Array[0];
 	for (int i = 0; i < SIZE; i++) if (Array[i] > max) max = Array[i];
 	return max;
 }
+template int fnc::maxValueIn <int>(int Array[], int SIZE);
+template double fnc::maxValueIn <double>(double Array[], int SIZE);
+template char fnc::maxValueIn <char>(char Array[], int SIZE);
 
-template <typename t1, typename t2> t1 maxValueIn(t1 Array[][4], t2 SIZE1, t2 SIZE2)//определение максимального значения в двумерном массиве
+template <typename T> T fnc::maxValueIn(T Array[ROWS][COLS], int ROWS, int COLS)//определение максимального значения в двумерном массиве
 {
-	t1 max = Array[0][0];
-	for (int i = 0; i < SIZE1; i++)
+	T max = Array[0][0];
+	for (int i = 0; i < ROWS; i++)
 	{
-		for (int j = 0; j < SIZE2; j++) if (Array[i][j] > max) max = Array[i][j];
+		for (int j = 0; j < COLS; j++) if (Array[i][j] > max) max = Array[i][j];
 	}
 	return max;
 }
+template  int fnc::maxValueIn <int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template  double fnc::maxValueIn <double>(double Array[ROWS][COLS], int ROWS, int COLS);
+template  char fnc::maxValueIn <char>(char Array[ROWS][COLS], int ROWS, int COLS);
 
-template <typename t1, typename t2> void ShiftLeft(t1 Array[], t2 SIZE, t2 shift)//циклический сдвиг массива влево
+template <typename T> void fnc::ShiftLeft(T Array[], int SIZE, int shift)//циклический сдвиг массива влево
 {
 	for (int i = 0; i < shift; i++) {
-		t1 temp = Array[0];
+		T temp = Array[0];
 		for (int i = 0; i < SIZE - 1; i++) Array[i] = Array[i + 1];
 		Array[SIZE - 1] = temp;
 	}
 }
+template void fnc::ShiftLeft <int>(int Array[], int SIZE, int shift);
+template void fnc::ShiftLeft <double>(double Array[], int SIZE, int shift);
+template void fnc::ShiftLeft <char>(char Array[], int SIZE, int shift);
 
-template <typename t1, typename t2> void ShiftLeft(t1 Array[][4], t2 SIZE1, t2 SIZE2, t2 shift)//циклический сдвиг двумерного массива влево
+template <typename T> void fnc::ShiftLeft(T Array[ROWS][COLS], int ROWS, int COLS, int shift)//циклический сдвиг двумерного массива влево
 {
 	for (int i = 0; i < shift; i++) {
-		t1 temp = Array[0][0];
-		for (int i = 0; i < SIZE1 * SIZE2 - 1; i++) Array[i / SIZE2][i % SIZE2] = Array[(i + 1) / SIZE2][(i + 1) % SIZE2];
-		Array[SIZE1 - 1][SIZE2 - 1] = temp;
+		T temp = Array[0][0];
+		for (int i = 0; i < ROWS * COLS - 1; i++) Array[i / COLS][i % COLS] = Array[(i + 1) / COLS][(i + 1) % COLS];
+		Array[ROWS - 1][COLS - 1] = temp;
 	}
 }
+template  void fnc::ShiftLeft<int>(int Array[ROWS][COLS], int ROWS, int COLS, int shift);
+template  void fnc::ShiftLeft<double>(double Array[ROWS][COLS], int ROWS, int COLS, int shift);
+template  void fnc::ShiftLeft<char>(char Array[ROWS][COLS], int ROWS, int COLS, int shift);
 
-template <typename t1, typename t2> void ShiftRight(t1 Array[], t2 SIZE, t2 shift)//циклический сдвиг массива вправо
+template <typename T> void fnc::ShiftRight(T Array[], int SIZE, int shift)//циклический сдвиг массива вправо
 {
 	for (int i = 0; i < shift; i++) {
-		t1 temp = Array[SIZE - 1];
+		T temp = Array[SIZE - 1];
 		for (int i = SIZE - 2; i >= 0; i--) Array[i + 1] = Array[i];
 		Array[0] = temp;
 	}
 }
+template void fnc::ShiftRight <int>(int Array[], int SIZE, int shift);
+template void fnc::ShiftRight <double>(double Array[], int SIZE, int shift);
+template void fnc::ShiftRight <char>(char Array[], int SIZE, int shift);
 
-template <typename t1, typename t2> void ShiftRight(t1 Array[][4], t2 SIZE1, t2 SIZE2, t2 shift)//циклический сдвиг двумерного массива вправо
+template <typename T> void fnc::ShiftRight(T Array[ROWS][COLS], int ROWS, int COLS, int shift)//циклический сдвиг двумерного массива вправо
 {
 	for (int i = 0; i < shift; i++) {
-		t1 temp = Array[SIZE1 - 1][SIZE2 - 1];
-		for (int i = SIZE1 * SIZE2 - 2; i >= 0; i--) Array[(i + 1) / SIZE2][(i + 1) % SIZE2] = Array[i / SIZE2][i % SIZE2];
+		T temp = Array[ROWS - 1][COLS - 1];
+		for (int i = ROWS * COLS - 2; i >= 0; i--) Array[(i + 1) / COLS][(i + 1) % COLS] = Array[i / COLS][i % COLS];
 		Array[0][0] = temp;
 	}
 }
+template void fnc::ShiftRight <int>(int Array[ROWS][COLS], int ROWS, int COLS, int shift);
+template void fnc::ShiftRight <double>(double Array[ROWS][COLS], int ROWS, int COLS, int shift);
+template void fnc::ShiftRight <char>(char Array[ROWS][COLS], int ROWS, int COLS, int shift);
 
-template<typename t1, typename t2> void Call(t1 Array[], t2 SIZE)//вывод данных по массиву
+template<typename T> void fnc::Call(T Array[], int SIZE)//вывод данных по массиву
 {
-	cout << "\nМассив с типом данных " << typeid(t1).name() << endl;
+	cout << "\nМассив с типом данных " << typeid(T).name() << endl;
 	Rand(Array, SIZE);
 	Print(Array, SIZE);
-	//if (sizeof(t1) == sizeof(char))
-	//{
-		//Sum(Array, SIZE);
-		//cout << "\nСумма элементов массива " << sum_char << endl;
-		//Avg(Array, SIZE);
-		//cout << "\nСреднее-арифметическое элементов массива " << avg_char << endl;
-//	}
-	//else {
-		cout << "\nСумма элементов массива " << Sum(Array, SIZE) << endl;
-		cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE) << endl;
-	//}
+	cout << "\nСумма элементов массива " << Sum(Array, SIZE) << endl;
+	cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE) << endl;
 	cout << "\nСортировка массива в порядке возрастания: " << endl;
 	Sort(Array, SIZE);
 	Print(Array, SIZE);
-	if (sizeof(t1) == sizeof(char))
+	if (sizeof(T) == sizeof(char))
 	{
 		cout << "\nМинимальное значение в массиве " << int(minValueIn(Array, SIZE)) << endl;
 		cout << "\nМаксимальное значение в массиве " << int(maxValueIn(Array, SIZE)) << endl;
@@ -250,42 +267,39 @@ template<typename t1, typename t2> void Call(t1 Array[], t2 SIZE)//вывод данных 
 	cout << "\t\t\t___________________________" << endl;
 
 }
+template void fnc::Call <int>(int Array[], int SIZE);
+template void fnc::Call <double>(double Array[], int SIZE);
+template void fnc::Call <char>(char Array[], int SIZE);
 
-template<typename t1, typename t2> void Call(t1 Array[][4], t2 SIZE1, t2 SIZE2)//вывод данных по двумерному массиву
+template<typename T> void fnc::Call(T Array[ROWS][COLS], int ROWS, int COLS)//вывод данных по двумерному массиву
 {
-	cout << "\nДвумерный массив с типом данных " << typeid(t1).name() << endl;
-	Rand(Array, SIZE1, SIZE2);
-	Print(Array, SIZE1, SIZE2);
-	//if (sizeof(t1) == sizeof(char))
-	//{
-	//	Sum(Array, SIZE1, SIZE2);
-	//	//cout << "\nСумма элементов массива " << sum_char2 << endl;
-	//	Avg(Array, SIZE1, SIZE2);
-	//	//cout << "\nСреднее-арифметическое элементов массива " << avg_char2 << endl;
-//	}
-	//else {
-		cout << "\nСумма элементов массива " << Sum(Array, SIZE1, SIZE2) << endl;
-		cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, SIZE1, SIZE2) << endl;
-	//}
+	cout << "\nДвумерный массив с типом данных " << typeid(T).name() << endl;
+	Rand(Array, ROWS, COLS);
+	Print(Array, ROWS, COLS);
+	cout << "\nСумма элементов массива " << Sum(Array, ROWS, COLS) << endl;
+	cout << "\nСреднее-арифметическое элементов массива " << Avg(Array, ROWS, COLS) << endl;
 	cout << "\nСортировка массива в порядке возрастания: " << endl;
-	Sort(Array, SIZE1, SIZE2);
-	Print(Array, SIZE1, SIZE2);
-	if (sizeof(t1) == sizeof(char))
+	Sort(Array, ROWS, COLS);
+	Print(Array, ROWS, COLS);
+	if (sizeof(T) == sizeof(char))
 	{
-		cout << "\nМинимальное значение в массиве " << int(minValueIn(Array, SIZE1, SIZE2)) << endl;
-		cout << "\nМаксимальное значение в массиве " << int(maxValueIn(Array, SIZE1, SIZE2)) << endl;
+		cout << "\nМинимальное значение в массиве " << int(minValueIn(Array, ROWS, COLS)) << endl;
+		cout << "\nМаксимальное значение в массиве " << int(maxValueIn(Array, ROWS, COLS)) << endl;
 	}
 	else
 	{
-		cout << "\nМинимальное значение в массиве " << minValueIn(Array, SIZE1, SIZE2) << endl;
-		cout << "\nМаксимальное значение в массиве " << maxValueIn(Array, SIZE1, SIZE2) << endl;
+		cout << "\nМинимальное значение в массиве " << minValueIn(Array, ROWS, COLS) << endl;
+		cout << "\nМаксимальное значение в массиве " << maxValueIn(Array, ROWS, COLS) << endl;
 	}
 	int shift;
 	cout << "\nЦиклический сдвиг массива влево." << " Введите число на которое сдвинуть массив "; cin >> shift;
-	ShiftLeft(Array, SIZE1, SIZE2, shift);
-	Print(Array, SIZE1, SIZE2);
+	ShiftLeft(Array, ROWS, COLS, shift);
+	Print(Array, ROWS, COLS);
 	cout << "\nЦиклический сдвиг массива вправо." << " Введите число на которое сдвинуть массив "; cin >> shift;
-	ShiftRight(Array, SIZE1, SIZE2, shift);
-	Print(Array, SIZE1, SIZE2);
+	ShiftRight(Array, ROWS, COLS, shift);
+	Print(Array, ROWS, COLS);
 	cout << "\t\t\t___________________________" << endl;
 }
+template void fnc::Call <int>(int Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Call <double>(double Array[ROWS][COLS], int ROWS, int COLS);
+template void fnc::Call <char>(char Array[ROWS][COLS], int ROWS, int COLS);
