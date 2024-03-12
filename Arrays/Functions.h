@@ -1,30 +1,30 @@
-#pragma once
+п»ї#pragma once
 #include<iostream>
 using namespace std;
 
-const int ROWS = 3;//количество строк массива
-const int COLS = 4;//количество столбцов массива
+const int ROWS = 3;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°СЃСЃРёРІР°
+const int COLS = 4;//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°СЃСЃРёРІР°
 
 namespace fnc
 {
-	template <typename T> void Rand(T Array[], int SIZE, int randmax = 100); //заполняем массив произвольными числами
-	template <typename T> void Rand(T Array[ROWS][COLS], int ROWS, int COLS, int randmax = 100); //заполняем двумерный массив произвольными числами
-	template <typename T> void Print(T Array[], int SIZE); //вывод массива в консоль
-	template <typename T> void Print(T Array[ROWS][COLS], int ROWS, int COLS); //вывод двумерного массива в консоль
-	template <typename T> double Sum(T Array[], int SIZE);//вычисление суммы элементов массива
-	template <typename T> double Sum(T Array[ROWS][COLS], int ROWS, int COLS);//вычисление суммы элементов двумерного массива
-	template <typename T> void Sort(T Array[], int SIZE);//сортировка массива в порядке возрастания
-	template <typename T> void Sort(T Array[ROWS][COLS], int ROWS, int COLS);//сортировка двумерного массива в порядке возрастания
-	template <typename T> double Avg(T Array[], int SIZE);//вычисление средее-арифметическое элементов массива
-	template <typename T> double Avg(T Array[ROWS][COLS], int ROWS, int COLS);//вычисление средее-арифметическое элементов двумерного массива
-	template <typename T> T minValueIn(T Array[], int SIZE);//определение минимального значения в массиве
-	template <typename T> T minValueIn(T Array[ROWS][COLS], int ROWS, int COLS);//определение минимального значения в двумерном массиве
-	template <typename T> T maxValueIn(T Array[], int SIZE);//определение максимального значения в массиве
-	template <typename T> T maxValueIn(T Array[ROWS][COLS], int ROWS, int COLS);//определение максимального значения в двумерном массиве
-	template <typename T> void ShiftLeft(T Array[], int SIZE, int shift);//циклический сдвиг массива влево
-	template <typename T> void ShiftLeft(T Array[ROWS][COLS], int ROWS, int COLS, int shift);//циклический сдвиг двумерного массива влево
-	template <typename T> void ShiftRight(T Array[], int SIZE, int shift);//циклический сдвиг массива вправо
-	template <typename T> void ShiftRight(T Array[ROWS][COLS], int ROWS, int COLS, int shift);//циклический сдвиг двумерного массива вправо
-	template<typename T> void Call(T Array[], int SIZE);//вывод данных по массиву
-	template<typename T> void Call(T Array[ROWS][COLS], int ROWS, int COLS);//вывод данных по двумерному массиву  
+	template <typename T> void Rand(T Array[], int SIZE, int randmax = 100); //Р·Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ РїСЂРѕРёР·РІРѕР»СЊРЅС‹РјРё С‡РёСЃР»Р°РјРё
+	template <typename T> void Rand(T Array[ROWS][COLS], int ROWS, int COLS, int randmax = 100); //Р·Р°РїРѕР»РЅСЏРµРј РґРІСѓРјРµСЂРЅС‹Р№ РјР°СЃСЃРёРІ РїСЂРѕРёР·РІРѕР»СЊРЅС‹РјРё С‡РёСЃР»Р°РјРё
+	template <typename T> void Print(T Array[], int SIZE); //РІС‹РІРѕРґ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
+	template <typename T> void Print(T Array[ROWS][COLS], int ROWS, int COLS); //РІС‹РІРѕРґ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РєРѕРЅСЃРѕР»СЊ
+	template <typename T> double Sum(T Array[], int SIZE);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+	template <typename T> double Sum(T Array[ROWS][COLS], int ROWS, int COLS);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+	template <typename T> void Sort(T Array[], int SIZE);//СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР° РІ РїРѕСЂСЏРґРєРµ РІРѕР·СЂР°СЃС‚Р°РЅРёСЏ
+	template <typename T> void Sort(T Array[ROWS][COLS], int ROWS, int COLS);//СЃРѕСЂС‚РёСЂРѕРІРєР° РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІ РїРѕСЂСЏРґРєРµ РІРѕР·СЂР°СЃС‚Р°РЅРёСЏ
+	template <typename T> double Avg(T Array[], int SIZE);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРµРµ-Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР°
+	template <typename T> double Avg(T Array[ROWS][COLS], int ROWS, int COLS);//РІС‹С‡РёСЃР»РµРЅРёРµ СЃСЂРµРґРµРµ-Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ СЌР»РµРјРµРЅС‚РѕРІ РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР°
+	template <typename T> T minValueIn(T Array[], int SIZE);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
+	template <typename T> T minValueIn(T Array[ROWS][COLS], int ROWS, int COLS);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
+	template <typename T> T maxValueIn(T Array[], int SIZE);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РјР°СЃСЃРёРІРµ
+	template <typename T> T maxValueIn(T Array[ROWS][COLS], int ROWS, int COLS);//РѕРїСЂРµРґРµР»РµРЅРёРµ РјР°РєСЃРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РІ РґРІСѓРјРµСЂРЅРѕРј РјР°СЃСЃРёРІРµ
+	template <typename T> void ShiftLeft(T Array[], int SIZE, int shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІР»РµРІРѕ
+	template <typename T> void ShiftLeft(T Array[ROWS][COLS], int ROWS, int COLS, int shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІР»РµРІРѕ
+	template <typename T> void ShiftRight(T Array[], int SIZE, int shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РјР°СЃСЃРёРІР° РІРїСЂР°РІРѕ
+	template <typename T> void ShiftRight(T Array[ROWS][COLS], int ROWS, int COLS, int shift);//С†РёРєР»РёС‡РµСЃРєРёР№ СЃРґРІРёРі РґРІСѓРјРµСЂРЅРѕРіРѕ РјР°СЃСЃРёРІР° РІРїСЂР°РІРѕ
+	template<typename T> void Call(T Array[], int SIZE);//РІС‹РІРѕРґ РґР°РЅРЅС‹С… РїРѕ РјР°СЃСЃРёРІСѓ
+	template<typename T> void Call(T Array[ROWS][COLS], int ROWS, int COLS);//РІС‹РІРѕРґ РґР°РЅРЅС‹С… РїРѕ РґРІСѓРјРµСЂРЅРѕРјСѓ РјР°СЃСЃРёРІСѓ  
 }
