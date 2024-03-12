@@ -12,10 +12,9 @@ void main()
 	double Array_double[SIZE];
 	double Array2_double[ROWS][COLS];
 	Call(Array_char, SIZE);
-	Call(Array2_char, ROWS,COLS);
+	Call(Array2_char, ROWS, COLS);
 	Call(Array_in, SIZE);
-	Call(Array2_in, ROWS,COLS);
+	Call(Array2_in, ROWS, COLS);
 	Call(Array_double, SIZE);
-	Call(Array2_double, ROWS,COLS);
+	Call(Array2_double, ROWS, COLS);
 }
-
